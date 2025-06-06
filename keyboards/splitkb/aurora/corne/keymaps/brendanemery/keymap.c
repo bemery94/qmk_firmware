@@ -12,13 +12,29 @@
  * edit it directly.
  */
 
- const uint16_t PROGMEM at_symbol_combo[] = {KC_Z, KC_S, COMBO_END};
- const uint16_t PROGMEM tick_combo[] = {KC_S, KC_F, COMBO_END};
- combo_t key_combos[] = {
-     COMBO(at_symbol_combo, KC_AT),
-     COMBO(tick_combo, KC_GRV), // keycodes with modifiers are possible too!
- };
+//  const uint16_t PROGMEM at_symbol_combo[] = {KC_Z, KC_S, COMBO_END};
+//  const uint16_t PROGMEM tick_combo[] = {KC_S, KC_F, COMBO_END};
+//  combo_t key_combos[] = {
+//      COMBO(at_symbol_combo, KC_AT),
+//      COMBO(tick_combo, KC_GRV), // keycodes with modifiers are possible too!
+//  };
 
+const uint16_t PROGMEM at_symbol_combo[] = {KC_W, LALT_T(KC_N), COMBO_END};
+const uint16_t PROGMEM tick_combo[] = {LALT_T(KC_N), KC_P, COMBO_END};
+const uint16_t PROGMEM hash_combo[] = {KC_D, LCTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM dollar_combo[] = {KC_L, LSFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM equals_combo[] = {LSFT_T(KC_H), KC_M, COMBO_END};
+const uint16_t PROGMEM percentage_combo[] = {KC_X, KC_K, COMBO_END};
+const uint16_t PROGMEM tilde_combo[] = {KC_K, KC_J, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(at_symbol_combo, KC_AT),
+    COMBO(tick_combo, KC_GRV),
+    COMBO(hash_combo, KC_HASH),
+    COMBO(dollar_combo, KC_DLR),
+    COMBO(equals_combo, KC_EQL),
+    COMBO(percentage_combo, KC_PERC),
+    COMBO(tilde_combo, KC_TILD),
+};
  
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(KC_NO, KC_Z, KC_W, KC_D, KC_L, KC_X, KC_SCLN, KC_U, KC_O, KC_Y, KC_Q, KC_EXLM, KC_V, LGUI_T(KC_S), LALT_T(KC_N), LCTL_T(KC_T), LSFT_T(KC_H), KC_K, KC_COMM, LSFT_T(KC_A), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_C), KC_B, KC_CAPS, KC_F, KC_P, KC_G, KC_M, KC_J, KC_SLSH, KC_DOT, KC_EQL, KC_MINS, KC_QUOT, KC_NO, KC_ESC, LT(1,KC_R), LT(3,KC_ENT), KC_BSPC, LT(2,KC_SPC), KC_TAB),
