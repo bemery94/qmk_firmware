@@ -19,14 +19,11 @@
 // /* QMK */
 #define TAPPING_TERM 250
 
-// /* Miryoku */
-// #define BILATERAL_COMBINATIONS_LIMIT_CHORD_TO_N_KEYS 4 /* GUI, Alt, Ctrl, Shift */
-// #define BILATERAL_COMBINATIONS_DELAY_MODS_THAT_MATCH MOD_MASK_GUI
-// #define BILATERAL_COMBINATIONS_DELAY_MATCHED_MODS_BY 120  /* ms */
-// #define BILATERAL_COMBINATIONS_ALLOW_CROSSOVER_AFTER 80   /* ms */
-// #define BILATERAL_COMBINATIONS_ALLOW_SAMESIDED_AFTER 3000 /* ms */
-// #define BILATERAL_COMBINATIONS_TYPING_STREAK_TIMEOUT 160  /* ms */
-// #define BILATERAL_COMBINATIONS_TYPING_STREAK_MODMASK (~MOD_MASK_SHIFT)
+// // Combos are active across all layers.
+// #define COMBO_ONLY_FROM_LAYER 0
+
+// // Allow using the combo_should_trigger function for disabling combos on some layers
+// #define COMBO_SHOULD_TRIGGER 1
 
 #define CHORDAL_HOLD
 #define PERMISSIVE_HOLD

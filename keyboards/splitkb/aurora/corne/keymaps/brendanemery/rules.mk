@@ -24,4 +24,11 @@ DEFAULT_FOLDER = splitkb/aurora/corne/rev1
 
 #define CHORDAL_HOLD
 
+# Enable combos e.g. pressing a + b at the same time to output c
 COMBO_ENABLE = yes
+
+# Allows overriding keys e.g. shift + backspace => delete
+KEY_OVERRIDE_ENABLE = yes
+
+# Allow using dictionaty for Combos
+VPATH += keyboards/gboards

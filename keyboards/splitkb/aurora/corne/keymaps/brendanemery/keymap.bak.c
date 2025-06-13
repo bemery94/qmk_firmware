@@ -12,37 +12,88 @@
  * edit it directly.
  */
 
-//  const uint16_t PROGMEM at_symbol_combo[] = {KC_Z, KC_S, COMBO_END};
-//  const uint16_t PROGMEM tick_combo[] = {KC_S, KC_F, COMBO_END};
-//  combo_t key_combos[] = {
-//      COMBO(at_symbol_combo, KC_AT),
-//      COMBO(tick_combo, KC_GRV), // keycodes with modifiers are possible too!
-//  };
+#define UNDO LCTL(KC_Z)
+#define REDO LCTL(KC_Y)
 
-const uint16_t PROGMEM at_symbol_combo[] = {KC_W, LALT_T(KC_N), COMBO_END};
-const uint16_t PROGMEM tick_combo[] = {LALT_T(KC_N), KC_P, COMBO_END};
-const uint16_t PROGMEM hash_combo[] = {KC_D, LCTL_T(KC_T), COMBO_END};
-const uint16_t PROGMEM dollar_combo[] = {KC_L, LSFT_T(KC_H), COMBO_END};
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t less_than_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_LT);
+const key_override_t greater_than_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_RPRN, KC_GT);
+const key_override_t backslash_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_BSLS);
+const key_override_t tilde_override = ko_make_basic(MOD_MASK_SHIFT, KC_TILD, KC_PIPE);
+const key_override_t question_mark_override = ko_make_basic(MOD_MASK_SHIFT, KC_EXLM, KC_QUES);
+const key_override_t redo_override = ko_make_basic(MOD_MASK_SHIFT, UNDO, REDO);
+const key_override_t up_arrow_override = ko_make_basic(MOD_MASK_ALT, KC_TILD, KC_CIRC);
+
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+	&delete_key_override,
+    &less_than_key_override,
+    &greater_than_key_override,
+    &backslash_override,
+    &tilde_override,
+    &question_mark_override,
+    &redo_override,
+    &up_arrow_override
+};
+
+const uint16_t PROGMEM at_symbol_combo[] = {KC_D, LCTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM ampersand_combo[] = {KC_D, KC_L, COMBO_END};
+
+const uint16_t PROGMEM dollar_combo[] = {LALT_T(KC_I), LGUI_T(KC_C), COMBO_END};
 const uint16_t PROGMEM equals_combo[] = {LSFT_T(KC_H), KC_M, COMBO_END};
-const uint16_t PROGMEM percentage_combo[] = {KC_X, KC_K, COMBO_END};
-const uint16_t PROGMEM tilde_combo[] = {KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM percentage_combo[] = {KC_O, LCTL_T(KC_E), COMBO_END};
+
+const uint16_t PROGMEM hash_combo[] = {KC_U, KC_O, COMBO_END};
+
+const uint16_t PROGMEM copy_combo[] = {KC_P, KC_G, COMBO_END};
+const uint16_t PROGMEM cut_combo[] = {KC_G, KC_M, COMBO_END};
+const uint16_t PROGMEM paste_combo[] = {KC_P, KC_M, COMBO_END};
+
+const uint16_t PROGMEM open_bracket_combo[] = {LSFT_T(KC_A), LCTL_T(KC_E), COMBO_END};
+const uint16_t PROGMEM close_bracket_combo[] = {LCTL_T(KC_E), LALT_T(KC_I), COMBO_END};
+const uint16_t PROGMEM open_square_bracket_combo[] = {KC_DOT, KC_EXLM, COMBO_END};
+const uint16_t PROGMEM close_square_bracket_combo[] = {KC_EXLM, KC_QUOT, COMBO_END};
+
+const uint16_t PROGMEM plus_combo[] = {KC_L, LSFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM underscore_combo[] = {LSFT_T(KC_A), KC_DOT, COMBO_END};
+const uint16_t PROGMEM minus_combo[] = {LSFT_T(KC_A), KC_U, COMBO_END};
+const uint16_t PROGMEM up_arrow_combo[] = {LGUI_T(KC_S), LALT_T(KC_N), COMBO_END};
+const uint16_t PROGMEM asterisk_combo[] = {LALT_T(KC_N), LCTL_T(KC_T), COMBO_END};
+const uint16_t PROGMEM escape_combo[] = {LCTL_T(KC_T), LSFT_T(KC_H), COMBO_END};
+const uint16_t PROGMEM semicolon_combo[] = {LSFT_T(KC_A), KC_DOT, COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(at_symbol_combo, KC_AT),
-    COMBO(tick_combo, KC_GRV),
     COMBO(hash_combo, KC_HASH),
     COMBO(dollar_combo, KC_DLR),
     COMBO(equals_combo, KC_EQL),
     COMBO(percentage_combo, KC_PERC),
-    COMBO(tilde_combo, KC_TILD),
-};
- 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_split_3x6_3(KC_NO, KC_Z, KC_W, KC_D, KC_L, KC_X, KC_SCLN, KC_U, KC_O, KC_Y, KC_Q, KC_EXLM, KC_V, LGUI_T(KC_S), LALT_T(KC_N), LCTL_T(KC_T), LSFT_T(KC_H), KC_K, KC_COMM, LSFT_T(KC_A), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_C), KC_B, KC_CAPS, KC_F, KC_P, KC_G, KC_M, KC_J, KC_SLSH, KC_DOT, KC_EQL, KC_MINS, KC_QUOT, KC_NO, KC_ESC, LT(1,KC_R), LT(3,KC_ENT), KC_BSPC, LT(2,KC_SPC), KC_TAB),
-    [1] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_9, KC_NO, KC_NO, KC_8, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_7, KC_5, KC_3, KC_1, KC_NO, KC_NO, KC_0, KC_2, KC_4, KC_6, KC_NO, QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO),
-    [2] = LAYOUT_split_3x6_3(KC_NO, KC_BSLS, KC_LT, KC_GT, KC_QUES, KC_AT, KC_NO, KC_AMPR, KC_LBRC, KC_RBRC, KC_PERC, KC_TRNS, KC_NO, KC_HASH, KC_LCBR, KC_RCBR, KC_CIRC, KC_GRV, KC_NO, KC_DLR, KC_LPRN, KC_RPRN, KC_ASTR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO),
-    [3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_VOLD, KC_VOLU, KC_NO, KC_WBAK, KC_WFWD, KC_NO, KC_NO, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO, KC_CALC, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MS_WHLL, MS_WHLR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, MS_WHLD, MS_WHLU)
+    COMBO(ampersand_combo, KC_AMPR),
+
+    COMBO(open_bracket_combo, KC_LPRN),
+    COMBO(close_bracket_combo, KC_RPRN),
+    COMBO(open_square_bracket_combo, KC_LBRC),
+    COMBO(close_square_bracket_combo, KC_RBRC),
+
+    COMBO(plus_combo, KC_PLUS), 
+    COMBO(underscore_combo, KC_UNDS),   
+    COMBO(minus_combo, KC_MINS),    
+    COMBO(up_arrow_combo, KC_CIRC), 
+    COMBO(asterisk_combo, KC_ASTR), 
+    COMBO(escape_combo, KC_ESC),   
+    COMBO(semicolon_combo, KC_SCLN),   
+
+    COMBO(copy_combo, KC_COPY), 
+    COMBO(cut_combo, KC_CUT), 
+    COMBO(paste_combo, KC_PSTE)
 };
 
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT_split_3x6_3(KC_NO, KC_Z, KC_W, KC_D, KC_L, KC_X, UNDO, KC_U, KC_O, KC_Y, KC_Q, KC_NO, KC_V, LGUI_T(KC_S), LALT_T(KC_N), LCTL_T(KC_T), LSFT_T(KC_H), KC_K, KC_COMM, LSFT_T(KC_A), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_C), KC_B, KC_CAPS, KC_F, KC_P, KC_G, KC_M, KC_J, KC_SLSH, KC_DOT, KC_EXLM, KC_GRV, KC_QUOT, KC_TILD, MO(3), LT(1,KC_R), LSFT_T(KC_ENT), KC_BSPC, LT(2,KC_SPC), KC_TAB),
+    [1] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_9, KC_NO, KC_NO, KC_8, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_7, KC_5, KC_3, KC_1, KC_NO, KC_NO, KC_0, KC_2, KC_4, KC_6, KC_NO, QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO),
+    [2] = LAYOUT_split_3x6_3(KC_BRID, KC_BRIU, KC_NO, KC_MUTE, KC_VOLD, KC_VOLU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
+    [3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO, KC_NO, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NO, KC_NO, KC_NO, KC_NO, MS_BTN2, MS_BTN1, MS_BTN3)
+};
 
 
 #ifdef OTHER_KEYMAP_C
