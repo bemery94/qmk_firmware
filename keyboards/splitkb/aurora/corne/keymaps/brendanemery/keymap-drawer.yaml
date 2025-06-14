@@ -26,10 +26,10 @@ layers:
 combos:
   - {p: [4, 16], k: "+", l: ["MAIN", "NUMBER"]}
   - {p: [16, 28], k: "=", l: ["MAIN", "NUMBER"]}
-  - {p: [13, 14], k: "_", l: ["MAIN", "NUMBER"]}
+  - {p: [13, 14], k: "*", l: ["MAIN", "NUMBER"]}
   - {p: [1, 13, 14], k: "Home", l: ["MAIN"]}
   - {p: [13, 14], k: "Home", l: ["NAVIGATION", "MOUSE"]}
-  - {p: [14, 15], k: "*", l: ["MAIN", "NUMBER"]}
+  - {p: [14, 15], k: "_", l: ["MAIN", "NUMBER"]}
   - {p: [15, 16], k: "ESC", l: ["MAIN", "NUMBER"]}
   - {p: [7, 19], k: "-", l: ["MAIN", "NUMBER"]}
   - {p: [19, 31], k: ";", l: ["MAIN", "NUMBER"]}
