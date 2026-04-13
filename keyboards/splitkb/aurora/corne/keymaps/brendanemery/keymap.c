@@ -3,7 +3,6 @@
 #    include "keymap.h"
 #endif
 
-
 #include "brendanemery.h"
 // #include "keymap_combo.h"
 #include "combos.h"
@@ -15,24 +14,49 @@
  * edit it directly.
  */
 
-// #define UNDO LCTL(KC_Z)
-// #define REDO LCTL(KC_Y)
+enum layers { BASE = 0, NUMBERS, NAVIGATION, MOUSE };
 
-enum layers {
-    BASE = 0,
-    NUMBERS,
-    NAVIGATION,
-    MOUSE
-};
-
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(KC_NO, KC_Z, KC_W, KC_D, KC_L, KC_X, KC_NO, KC_U, KC_O, KC_Y, KC_Q, KC_EXLM, KC_V, LGUI_T(KC_S), LALT_T(KC_N), LCTL_T(KC_T), LSFT_T(KC_H), KC_K, KC_COMM, LSFT_T(KC_A), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_C), KC_B, KC_CAPS, KC_F, KC_P, KC_G, KC_M, KC_J, KC_SLSH, KC_DOT, KC_EQL, KC_MINS, KC_QUOT, KC_NO, KC_ESC, LT(1,KC_R), LT(3,KC_ENT), KC_BSPC, LT(2,KC_SPC), KC_TAB),
     [1] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_9, KC_NO, KC_NO, KC_8, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_7, KC_5, KC_3, KC_1, KC_NO, KC_NO, KC_0, KC_2, KC_4, KC_6, KC_NO, QK_BOOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO),
     [2] = LAYOUT_split_3x6_3(KC_BRID, KC_BRIU, KC_NO, KC_MUTE, KC_VOLD, KC_VOLU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
     [3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_NO, KC_NO, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, KC_NO, KC_NO, KC_NO, KC_NO, MS_BTN2, MS_BTN1, MS_BTN3)
 };
+// clang-format on
+
+// Specify the handedness which is used by Chordal Hold. If two keys are on the same hand, then permissive hold doesn't apply. I.e. you MUST wait for the TAPPING_TERM for two keys on the same hand. * means that it is exempt, i.e. permissive hold will always apply
+// clang-format off
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_split_3x6_3(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+                       '*', '*', '*',  '*', '*', '*'
+    );
+// clang-format on
+
+// Selectively enable HOLD_ON_OTHER_KEY_PRESS_PER_KEY for select keys (i.e. thumbs)
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Left thumb
+        case LT(1, KC_R):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        // Left thumb
+        case LT(3, KC_ENT):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        // Right thumb
+        case LT(2, KC_SPC):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
 
 #ifdef OTHER_KEYMAP_C
 #    include OTHER_KEYMAP_C
 #endif // OTHER_KEYMAP_C
-
