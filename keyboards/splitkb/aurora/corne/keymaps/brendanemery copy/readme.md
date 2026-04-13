@@ -51,16 +51,13 @@ qmk json2c -o keymap.c keymap.json
 You can add custom C code to the newly generated `keymap.c` file. Do note that you have to use **either** a C file **or** a JSON file - you cannot do both!  
 **If a JSON file is present, the C file is ignored.**
 
-# YAML IS NOT USED. ONLY JSON / .c
-Create layout: https://config.qmk.fm/#/splitkb/aurora/corne/rev1/LAYOUT_split_3x6_3
+
+Create layout: https://keymap-drawer.streamlit.app/
 cd packages/qmk_firmware/
 cd keyboards/splitkb/aurora/corne/keymaps/brendanemery/
-
-# DON'T DO THIS STEP!! Just modify the .c file -> This step is optional. Only if updating the json. Probably better to just update the .c file.
 qmk json2c -o keymap.c keymap_configured.json
 
-qmk flash -e CONVERT_TO=liatris -kb splitkb/aurora/corne -km brendanemery
-qmk compile -e CONVERT_TO=liatris -kb splitkb/aurora/corne -km brendanemery
+
 
 
 

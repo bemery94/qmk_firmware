@@ -1,4 +1,4 @@
-# This is ONLY USED FOR VISUALISATION!!!!
+# parsed and then tweaked from https://github.com/LOWPROKB/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
 layout:
   zmk_keyboard: corneish_zen
   layout_name: foostan_corne_6col_layout
@@ -6,7 +6,7 @@ layers:
   MAIN:
     - [null, Z, W, D, L, X, {t: "Undo", s: "Redo"}, U, O, Y, Q, null]
     - [V, {t: S, h: GUI}, {t: N, h: ALT}, {t: T, h: CTRL}, {t: H, h: SHIFT}, K, ",", {t: A, h: SHIFT}, {t: E, h: CTRL}, {t: I, h: ALT}, {t: C, h: GUI}, B]
-    - [CapsLk, F, P, G, M, J, {t: "/", s: "\\"}, ".", {t: "=", s: "+"}, "-", {t: "'", s: "\""}, {t: "~", s: "|", h: "^"}]
+    - [CapsLk, F, P, G, M, J, {t: "/", s: "\\"}, ".", {t: "!", s: "?"}, "`", {t: "'", s: "\""}, {t: "~", s: "|", h: "^"}]
     - [null, {t: R, h: LT1}, {t: Enter, h: Shift}, {t: Bspace, s: Del}, {t: Space, h: LT2}, Tab]
   NUMBER:
     - [null, null, null, null, 9, null, null, 8, null, null, null, null]
@@ -25,7 +25,7 @@ layers:
     - [{type: held}, null, null, Right mouse click, Left mouse click, Middle mouse click]
 combos:
   - {p: [4, 16], k: "+", l: ["MAIN", "NUMBER"]}
-  - {p: [16, 28], k: "`", l: ["MAIN", "NUMBER"]}
+  - {p: [16, 28], k: "=", l: ["MAIN", "NUMBER"]}
   - {p: [13, 14], k: "_", l: ["MAIN", "NUMBER"]}
   - {p: [1, 13, 14], k: "Home", l: ["MAIN"]}
   - {p: [13, 14], k: "Home", l: ["NAVIGATION", "MOUSE"]}
