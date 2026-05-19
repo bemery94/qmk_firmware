@@ -1,0 +1,55 @@
+# parsed and then tweaked from https://github.com/LOWPROKB/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
+layout:
+  zmk_keyboard: corneish_zen
+  layout_name: foostan_corne_6col_layout
+layers:
+  MAIN:
+    - [null, Q, W, E, R, T, Y, U, I, O, P, null]
+    - [null, {t: A, h: GUI}, {t: S, h: ALT}, {t: D, h: CTRL}, {t: F, h: SHIFT}, G, H, {t: J, h: SHIFT}, {t: K, h: CTRL}, {t: L, h: ALT}, {t: ;, h: GUI}, null]
+    - [CapsLk, Z, X, C, V, B, {t: N, s: "\\"}, M, {t: "!", s: "?"}, "`", {t: "'", s: "\""}, {t: "~", s: "|", h: "^"}]
+    - [null, {t: R, h: LT1}, {t: Enter, h: Shift}, {t: Bspace, s: Del}, {t: Space, h: LT2}, Tab]
+  NUMBER:
+    - [null, null, null, null, 9, null, null, 8, null, null, null, null]
+    - [null, 7, 5, 3, 1, null, null, 0, 2, 4, 6, null]
+    - [null, null, null, null, null, null, null, null, null, null, null, null]
+    - [null, {type: held}, {t: Enter, s: Shift}, {t: Bspace, s: Del}, {t: Space, h: LT2}, Tab]
+  NAVIGATION:
+    - [Bright down, Bright up, null, null, Vol-, Vol+, null, null, null, null, null, null]
+    - [null, GUI, ALT, CTRL, SHIFT, null, null, left, down, up, right, null]
+    - [null, null, null, null, null, null, null, null, null, null, null, null]
+    - [null, null, {t: Enter, s: Shift}, {t: Bspace, s: Del}, {type: held}, Tab]
+  MOUSE:
+    - [null, null, null, null, null, null, null, null, null, null, null, null]
+    - [null, GUI, ALT, CTRL, SHIFT, null, null, Mouse wheel left, Mouse wheel down, Mouse wheel up, Mouse wheel right, null]
+    - [null, null, null, null, null, null, null, Mouse left, Mouse down, Mouse up, Mouse right, null]
+    - [{type: held}, null, null, Right mouse click, Left mouse click, Middle mouse click]
+combos:
+  - {p: [4, 16], k: "+", l: ["MAIN", "NUMBER"]}
+  - {p: [16, 28], k: "=", l: ["MAIN", "NUMBER"]}
+  - {p: [13, 14], k: "*", l: ["MAIN", "NUMBER"]}
+  - {p: [1, 13, 14], k: "Home", l: ["MAIN"]}
+  - {p: [13, 14], k: "Home", l: ["NAVIGATION", "MOUSE"]}
+  - {p: [14, 15], k: "_", l: ["MAIN", "NUMBER"]}
+  - {p: [15, 16], k: "ESC", l: ["MAIN", "NUMBER"]}
+  - {p: [7, 19], k: "-", l: ["MAIN", "NUMBER"]}
+  - {p: [19, 31], k: ";", l: ["MAIN", "NUMBER"]}
+  - {p: [19, 20], k: "(", l: ["MAIN", "NUMBER"]}
+  - {p: [20, 21], k: ")", l: ["MAIN", "NUMBER"]}
+  - {p: [21, 22], k: "$", l: ["MAIN", "NUMBER"]}
+  - {p: [9, 21, 22], k: "END", l: ["MAIN"]}
+  - {p: [21, 22], k: "END", l: ["NAVIGATION", "MOUSE"]}
+  - {p: [31, 32], k: "[", l: ["MAIN", "NUMBER"]}
+  - {p: [32, 33], k: "]", l: ["MAIN", "NUMBER"]}
+  - {p: [8, 19, 20], k: "<", l: ["MAIN", "NUMBER"]}
+  - {p: [8, 20, 21], k: ">", l: ["MAIN", "NUMBER"]}
+  - {p: [26, 27], k: "Copy", l: ["MAIN", "NUMBER"]}
+  - {p: [27, 28], k: "Cut", l: ["MAIN", "NUMBER"]}
+  - {p: [26, 28], k: "Paste", l: ["MAIN", "NUMBER"]}
+  - {p: [3, 4], k: "&", l: ["MAIN", "NUMBER"]}
+  - {p: [7, 8], k: "#", l: ["MAIN", "NUMBER"]}
+  - {p: [3, 15], k: "@", l: ["MAIN", "NUMBER"]}
+  - {p: [8, 20], k: "%", l: ["MAIN", "NUMBER"]}
+
+
+
+

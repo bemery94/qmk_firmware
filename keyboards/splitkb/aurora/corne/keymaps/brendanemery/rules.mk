@@ -18,7 +18,7 @@ DEFAULT_FOLDER = splitkb/aurora/corne/rev1
 # DEFERRED_EXEC_ENABLE = yes
 
 # Userspace options
-# USER_CAPS_WORD_ENABLE = no
+USER_CAPS_WORD_ENABLE = yes
 # USER_NUM_WORD_ENABLE = yes
 
 

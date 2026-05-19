@@ -17,7 +17,7 @@
 #pragma once
 
 /* QMK */
-#define TAPPING_TERM 200
+#define TAPPING_TERM 250
 
 // If pressing a hold key twice within the QUICK_TAP_TERM, then the second time it is tapped and held, it will be considered tapped repeatedly instead of held. E.g. pressing Shift(A) and then quickly pressing and holding Shift(A) will cause "a" to be written repeatedly. When this is set to 0, then the second time Shift(A) is held, it will be considered held.
 #define QUICK_TAP_TERM 0

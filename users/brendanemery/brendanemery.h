@@ -13,3 +13,4 @@
 #endif
 
 #include "features/terminal_macros.h"
+#include "features/vim_macros.h"

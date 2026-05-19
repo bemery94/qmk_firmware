@@ -27,6 +27,7 @@ ifeq ($(strip $(USER_NUM_WORD_ENABLE)), yes)
 endif
 
 SRC += features/terminal_macros.c
+SRC += features/vim_macros.c
 
 # Define these last so any other logic can set up some defines first
 SRC += process_records.c

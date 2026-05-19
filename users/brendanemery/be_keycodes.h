@@ -10,5 +10,8 @@ enum userspace_custom_keycodes {
 #endif
     HOME_DIR,
     CXX_SCOPE,
-    UP_DIR
+    UP_DIR,
+    VIM_SAVE,
+    VIM_CLOSE,
+    VIM_SAVE_AND_CLOSE
 };

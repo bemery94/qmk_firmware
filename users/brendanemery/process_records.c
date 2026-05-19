@@ -19,9 +19,7 @@
 
 uint8_t mod_state;
 
-
-__attribute__ ((weak))
-bool process_record_user_kb(uint16_t keycode, keyrecord_t *record) {
+__attribute__((weak)) bool process_record_user_kb(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
@@ -40,28 +38,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // of this function, I defer to that one if it exists.
     // return process_record_user(keycode, record);
 
-
     // Custom keycode / function handling, based on the core function
     // process_record_quantum
     // https://github.com/qmk/qmk_firmware/blob/master/quantum/quantum.c
 
     if (!(
 #ifdef USER_CAPS_WORD_ENABLE
-        process_record_caps_word(keycode, record) &&
+            process_record_caps_word(keycode, record) &&
 #endif
 #ifdef USER_NUM_WORD_ENABLE
-        process_record_num_word(keycode, record) &&
+            process_record_num_word(keycode, record) &&
 #endif
-        true)) {
+            true)) {
         return false;
     }
-
 
     // Miscellaneous keycode handling
     mod_state = get_mods();
 
-    if (!process_record_terminal_macros(keycode, record))
-    { 
+    if (!process_record_terminal_macros(keycode, record)) {
+        return false;
+    }
+
+    if (!process_record_vim_macros(keycode, record)) {
         return false;
     }
 
